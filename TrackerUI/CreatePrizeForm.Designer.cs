@@ -1,7 +1,7 @@
 ﻿
 namespace TrackerUI
 {
-    partial class CreatePrize
+    partial class CreatePrizeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,19 +51,20 @@ namespace TrackerUI
             this.createPrizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createPrizeButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createPrizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.createPrizeButton.Location = new System.Drawing.Point(102, 462);
+            this.createPrizeButton.Location = new System.Drawing.Point(73, 325);
             this.createPrizeButton.Name = "createPrizeButton";
             this.createPrizeButton.Size = new System.Drawing.Size(290, 108);
             this.createPrizeButton.TabIndex = 27;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = true;
+            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // orLable
             // 
             this.orLable.AutoSize = true;
             this.orLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.orLable.Location = new System.Drawing.Point(129, 294);
+            this.orLable.Location = new System.Drawing.Point(22, 229);
             this.orLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.orLable.Name = "orLable";
             this.orLable.Size = new System.Drawing.Size(45, 25);
@@ -72,9 +73,9 @@ namespace TrackerUI
             // 
             // placeNameValue
             // 
-            this.placeNameValue.Location = new System.Drawing.Point(221, 157);
+            this.placeNameValue.Location = new System.Drawing.Point(219, 154);
             this.placeNameValue.Name = "placeNameValue";
-            this.placeNameValue.Size = new System.Drawing.Size(212, 20);
+            this.placeNameValue.Size = new System.Drawing.Size(188, 20);
             this.placeNameValue.TabIndex = 25;
             // 
             // placeNameLable
@@ -82,7 +83,7 @@ namespace TrackerUI
             this.placeNameLable.AutoSize = true;
             this.placeNameLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeNameLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.placeNameLable.Location = new System.Drawing.Point(26, 157);
+            this.placeNameLable.Location = new System.Drawing.Point(22, 149);
             this.placeNameLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.placeNameLable.Name = "placeNameLable";
             this.placeNameLable.Size = new System.Drawing.Size(128, 25);
@@ -91,17 +92,18 @@ namespace TrackerUI
             // 
             // prizeAmountValue
             // 
-            this.prizeAmountValue.Location = new System.Drawing.Point(221, 211);
+            this.prizeAmountValue.Location = new System.Drawing.Point(219, 199);
             this.prizeAmountValue.Name = "prizeAmountValue";
-            this.prizeAmountValue.Size = new System.Drawing.Size(212, 20);
+            this.prizeAmountValue.Size = new System.Drawing.Size(188, 20);
             this.prizeAmountValue.TabIndex = 23;
+            this.prizeAmountValue.Text = "0";
             // 
             // prizeAmountLable
             // 
             this.prizeAmountLable.AutoSize = true;
             this.prizeAmountLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizeAmountLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.prizeAmountLable.Location = new System.Drawing.Point(26, 211);
+            this.prizeAmountLable.Location = new System.Drawing.Point(22, 194);
             this.prizeAmountLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.prizeAmountLable.Name = "prizeAmountLable";
             this.prizeAmountLable.Size = new System.Drawing.Size(140, 25);
@@ -110,17 +112,18 @@ namespace TrackerUI
             // 
             // prizePrecentageValue
             // 
-            this.prizePrecentageValue.Location = new System.Drawing.Point(221, 370);
+            this.prizePrecentageValue.Location = new System.Drawing.Point(219, 269);
             this.prizePrecentageValue.Name = "prizePrecentageValue";
-            this.prizePrecentageValue.Size = new System.Drawing.Size(212, 20);
+            this.prizePrecentageValue.Size = new System.Drawing.Size(188, 20);
             this.prizePrecentageValue.TabIndex = 21;
+            this.prizePrecentageValue.Text = "0";
             // 
             // prizePrecentageLable
             // 
             this.prizePrecentageLable.AutoSize = true;
             this.prizePrecentageLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizePrecentageLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.prizePrecentageLable.Location = new System.Drawing.Point(26, 370);
+            this.prizePrecentageLable.Location = new System.Drawing.Point(22, 264);
             this.prizePrecentageLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.prizePrecentageLable.Name = "prizePrecentageLable";
             this.prizePrecentageLable.Size = new System.Drawing.Size(177, 25);
@@ -141,9 +144,9 @@ namespace TrackerUI
             // 
             // placeNumberValue
             // 
-            this.placeNumberValue.Location = new System.Drawing.Point(221, 103);
+            this.placeNumberValue.Location = new System.Drawing.Point(219, 109);
             this.placeNumberValue.Name = "placeNumberValue";
-            this.placeNumberValue.Size = new System.Drawing.Size(212, 20);
+            this.placeNumberValue.Size = new System.Drawing.Size(188, 20);
             this.placeNumberValue.TabIndex = 19;
             // 
             // placeNumberLable
@@ -151,18 +154,18 @@ namespace TrackerUI
             this.placeNumberLable.AutoSize = true;
             this.placeNumberLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeNumberLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.placeNumberLable.Location = new System.Drawing.Point(26, 103);
+            this.placeNumberLable.Location = new System.Drawing.Point(22, 104);
             this.placeNumberLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.placeNumberLable.Name = "placeNumberLable";
             this.placeNumberLable.Size = new System.Drawing.Size(147, 25);
             this.placeNumberLable.TabIndex = 18;
             this.placeNumberLable.Text = "Place Number";
             // 
-            // CreatePrize
+            // CreatePrizeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 773);
+            this.ClientSize = new System.Drawing.Size(443, 464);
             this.Controls.Add(this.createPrizeButton);
             this.Controls.Add(this.orLable);
             this.Controls.Add(this.placeNameValue);
@@ -174,7 +177,7 @@ namespace TrackerUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.placeNumberValue);
             this.Controls.Add(this.placeNumberLable);
-            this.Name = "CreatePrize";
+            this.Name = "CreatePrizeForm";
             this.Text = "CreatePrize";
             this.ResumeLayout(false);
             this.PerformLayout();
