@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrackerLibrary.Models;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
@@ -16,9 +18,10 @@ namespace TrackerLibrary
         /// <returns></returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            model.id = 1;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            {
 
-            return model;
+            }
             //Todo connect to database
         }    
         
