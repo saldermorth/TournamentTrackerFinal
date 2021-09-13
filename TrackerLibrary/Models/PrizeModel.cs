@@ -9,9 +9,9 @@ namespace TrackerLibrary.Models
     public class PrizeModel
     {
         /// <summary>
-        /// The _Unique id for prize
+        /// The _Unique Id for prize
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         public int PlaceNumber { get; set; }
         public string PlaceName { get; set; }
         public decimal PrizeAmount { get; set; }

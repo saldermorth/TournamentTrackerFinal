@@ -11,7 +11,7 @@ namespace TrackerLibrary.DataAccess
     {
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            model.id = 1;
+            model.Id = 1;
 
             return model;
             //Todo connect to textfile
