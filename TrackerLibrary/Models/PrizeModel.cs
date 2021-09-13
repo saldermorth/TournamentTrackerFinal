@@ -9,7 +9,7 @@ namespace TrackerLibrary.Models
     public class PrizeModel
     {
         /// <summary>
-        /// The _Unique Id for prize
+        /// The _Unique Id for prize_
         /// </summary>
         public int Id { get; set; }
         public int PlaceNumber { get; set; }
