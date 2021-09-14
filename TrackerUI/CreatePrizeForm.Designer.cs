@@ -54,7 +54,7 @@ namespace TrackerUI
             this.createPrizeButton.Location = new System.Drawing.Point(73, 325);
             this.createPrizeButton.Name = "createPrizeButton";
             this.createPrizeButton.Size = new System.Drawing.Size(290, 108);
-            this.createPrizeButton.TabIndex = 27;
+            this.createPrizeButton.TabIndex = 5;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = true;
             this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
@@ -76,7 +76,7 @@ namespace TrackerUI
             this.placeNameValue.Location = new System.Drawing.Point(219, 154);
             this.placeNameValue.Name = "placeNameValue";
             this.placeNameValue.Size = new System.Drawing.Size(188, 20);
-            this.placeNameValue.TabIndex = 25;
+            this.placeNameValue.TabIndex = 2;
             // 
             // placeNameLable
             // 
@@ -95,7 +95,7 @@ namespace TrackerUI
             this.prizeAmountValue.Location = new System.Drawing.Point(219, 199);
             this.prizeAmountValue.Name = "prizeAmountValue";
             this.prizeAmountValue.Size = new System.Drawing.Size(188, 20);
-            this.prizeAmountValue.TabIndex = 23;
+            this.prizeAmountValue.TabIndex = 3;
             this.prizeAmountValue.Text = "0";
             // 
             // prizeAmountLable
@@ -115,7 +115,7 @@ namespace TrackerUI
             this.prizePrecentageValue.Location = new System.Drawing.Point(219, 269);
             this.prizePrecentageValue.Name = "prizePrecentageValue";
             this.prizePrecentageValue.Size = new System.Drawing.Size(188, 20);
-            this.prizePrecentageValue.TabIndex = 21;
+            this.prizePrecentageValue.TabIndex = 4;
             this.prizePrecentageValue.Text = "0";
             // 
             // prizePrecentageLable
@@ -147,7 +147,7 @@ namespace TrackerUI
             this.placeNumberValue.Location = new System.Drawing.Point(219, 109);
             this.placeNumberValue.Name = "placeNumberValue";
             this.placeNumberValue.Size = new System.Drawing.Size(188, 20);
-            this.placeNumberValue.TabIndex = 19;
+            this.placeNumberValue.TabIndex = 1;
             // 
             // placeNumberLable
             // 
