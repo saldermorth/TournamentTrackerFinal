@@ -35,13 +35,13 @@ namespace TrackerLibrary.DataAccess
                 p.Add("@PricePercentage", model.PrizeAmount);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                //connection.Execute("dbo.spPrizes_Insert", p, commandType: CommandType.StoredProcedure);
+                
                 connection.Execute("[dbo].[spPrizes_Insert]", p, commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
 
                 return model;
             }
-            //Todo connect to database
+           
         }    
         
     }

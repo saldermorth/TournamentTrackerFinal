@@ -11,10 +11,13 @@ namespace TrackerLibrary.DataAccess
     {
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            model.Id = 1;
-
-            return model;
-            //Todo connect to textfile
+            //Load the textfile 
+            //Convert the text to List<Prizemdel>
+            //Find the max Id
+            //Add the new record with the new id (max + 1)
+            //Convert the prizes to list<string>
+            //Save the list<sting> to the text file
+            
 
         }
     }
