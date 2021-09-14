@@ -8,6 +8,10 @@ namespace TrackerLibrary.Models
 {
     public class PersonModel
     {
+        /// <summary>
+        /// The _Unique Id for person
+        /// </summary>
+        public int Id { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

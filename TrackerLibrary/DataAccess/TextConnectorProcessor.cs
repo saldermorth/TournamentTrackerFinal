@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackerLibrary.Models;
 
-namespace TrackerLibrary.DataAccess
+namespace TrackerLibrary.DataAccess.TextHelpers
 {
     //* Load the textfile 
-    //Convert the text to List<Prizemdel>
+    //* Convert the text to List<Prizemdel>
     //Find the max Id
     //Add the new record with the new id (max + 1)
     //Convert the prizes to list<string>
@@ -52,6 +52,28 @@ namespace TrackerLibrary.DataAccess
 
             }
             return output;
+        }
+        public static List<PersonModel> ConvertToPersonModels(this List<string> lines)
+        {
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (string line in lines)
+            {
+
+            }
+        }
+
+        public static void SaveToPrizeFile(this List<PrizeModel> models , string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (PrizeModel p in models)
+            {
+                lines.Add($"{ p.Id },{ p.PlaceNumber },{ p.PlaceName },{ p.PrizeAmount },{ p.PrizePercentage }");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+
         }
     }
 }
