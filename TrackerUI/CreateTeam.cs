@@ -14,6 +14,8 @@ namespace TrackerUI
 {
     public partial class CreateTeam : Form
     {
+        private List<PersonModel> availableTeameMembers = new List<PersonModel>();
+        private List<PersonModel> selectedTeameMembers = new List<PersonModel>();
         public CreateTeam()
         {
             InitializeComponent();
