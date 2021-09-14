@@ -59,8 +59,17 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
             foreach (string line in lines)
             {
+                string[] cols = line.Split(',');
 
+                PersonModel p = new PersonModel();
+                p.Id = int.Parse(cols[0]);
+                p.FirstName = cols[1];
+                p.LastName = cols[2];
+                p.EmailAdress = cols[3];
+                p.CellphoneNumber = cols[4];
+                output.Add(p);
             }
+            return output;
         }
 
         public static void SaveToPrizeFile(this List<PrizeModel> models , string fileName)
@@ -74,6 +83,16 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
 
+        }
+        public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (PersonModel p in models)
+            {
+                lines.Add($"{p.Id},{p.FirstName},{p.LastName},{p.EmailAdress},{p.CellphoneNumber}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
     }
 }
