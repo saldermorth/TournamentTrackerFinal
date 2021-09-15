@@ -19,8 +19,28 @@ namespace TrackerUI
         public CreateTeam()
         {
             InitializeComponent();
+
+            //CreateSampleData();
+
+            WireUpLists();
+        }
+        private void CreateSampleData()
+        {
+            availableTeameMembers.Add(new PersonModel { FirstName = "Gustav", LastName = "Berg" });
+            availableTeameMembers.Add(new PersonModel { FirstName = "Carrrl", LastName = "essen" });
+
+            selectedTeameMembers.Add(new PersonModel { FirstName = "Jane", LastName = "Doe" });
+            selectedTeameMembers.Add(new PersonModel { FirstName = "James", LastName = "Dove" });
         }
 
+        private void WireUpLists()
+        {
+            selectTeamMemberDropDown.DataSource = availableTeameMembers;
+            selectTeamMemberDropDown.DisplayMember = "FullName";
+
+            teamMembersListBox.DataSource = selectedTeameMembers;
+            teamMembersListBox.DisplayMember = "FullName";
+        }
         private void createMemberButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())

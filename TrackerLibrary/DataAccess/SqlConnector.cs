@@ -64,7 +64,16 @@ namespace TrackerLibrary.DataAccess
                 return model;
             }
            
-        }    
-        
+        }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TournamentTracker")))
+            {
+
+            }
+            
+        }
     }
 }
