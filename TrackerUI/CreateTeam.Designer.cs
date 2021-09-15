@@ -254,6 +254,7 @@ namespace TrackerUI
             this.addTeamMemberButton.TabIndex = 3;
             this.addTeamMemberButton.Text = "Add Member";
             this.addTeamMemberButton.UseVisualStyleBackColor = true;
+            this.addTeamMemberButton.Click += new System.EventHandler(this.addTeamMemberButton_Click);
             // 
             // CreateTeam
             // 

@@ -61,5 +61,12 @@ namespace TrackerLibrary.DataAccess
 
             
         }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            throw new NotImplementedException();
+
+            // TODO - implement
+        }
     }
 }
