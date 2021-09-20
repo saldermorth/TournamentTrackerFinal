@@ -71,10 +71,11 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
             return output;
         }
+
         public static List<TeamModel> ConvertToTeamModels(this List<string> lines,string peopleFileName)
         {
             //id,team namle, list of ids seperated by the pipes
-            //3,Tims team, 1|2|3
+            //3,Tims team, 1|2|3. Do like this
             List<TeamModel> output = new List<TeamModel>();
             List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModels();
 
