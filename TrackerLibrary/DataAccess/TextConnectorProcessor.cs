@@ -67,12 +67,12 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 p.LastName = cols[2];
                 p.EmailAdress = cols[3];
                 p.CellphoneNumber = cols[4];
-                output.Add(p);
+                output.Add(p);//?
             }
             return output;
         }
 
-        public static List<TeamModel> ConvertToTeamModels(this List<string> lines,string peopleFileName)
+        public static List<TeamModel> ConvertToTeamModels(this List<string> lines,string peopleFileName)//?
         {
             //id,team namle, list of ids seperated by the pipes
             //3,Tims team, 1|2|3. Do like this
@@ -94,6 +94,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 {
                     t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
                 }
+                output.Add(t);
             }
             return output;
         }
