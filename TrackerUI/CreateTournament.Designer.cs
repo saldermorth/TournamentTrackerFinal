@@ -66,22 +66,25 @@ namespace TrackerUI
             // prizesLable
             // 
             this.prizesLable.AutoSize = true;
+            this.prizesLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizesLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.prizesLable.Location = new System.Drawing.Point(431, 303);
             this.prizesLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.prizesLable.Name = "prizesLable";
-            this.prizesLable.Size = new System.Drawing.Size(79, 13);
+            this.prizesLable.Size = new System.Drawing.Size(52, 20);
             this.prizesLable.TabIndex = 33;
-            this.prizesLable.Text = "Teams / Player";
+            this.prizesLable.Text = "Prizes";
             // 
             // prizesListBox
             // 
             this.prizesListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.prizesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prizesListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.prizesListBox.FormattingEnabled = true;
+            this.prizesListBox.ItemHeight = 20;
             this.prizesListBox.Location = new System.Drawing.Point(436, 336);
             this.prizesListBox.Name = "prizesListBox";
-            this.prizesListBox.Size = new System.Drawing.Size(264, 145);
+            this.prizesListBox.Size = new System.Drawing.Size(264, 142);
             this.prizesListBox.TabIndex = 32;
             // 
             // deleteSelectedPlayersButton
@@ -173,29 +176,31 @@ namespace TrackerUI
             // tournamentPlayerLable
             // 
             this.tournamentPlayerLable.AutoSize = true;
+            this.tournamentPlayerLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tournamentPlayerLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.tournamentPlayerLable.Location = new System.Drawing.Point(431, 94);
             this.tournamentPlayerLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tournamentPlayerLable.Name = "tournamentPlayerLable";
-            this.tournamentPlayerLable.Size = new System.Drawing.Size(79, 13);
+            this.tournamentPlayerLable.Size = new System.Drawing.Size(112, 20);
             this.tournamentPlayerLable.TabIndex = 22;
             this.tournamentPlayerLable.Text = "Teams / Player";
             // 
             // tournamentNameLable
             // 
             this.tournamentNameLable.AutoSize = true;
+            this.tournamentNameLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tournamentNameLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.tournamentNameLable.Location = new System.Drawing.Point(37, 94);
             this.tournamentNameLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tournamentNameLable.Name = "tournamentNameLable";
-            this.tournamentNameLable.Size = new System.Drawing.Size(95, 13);
+            this.tournamentNameLable.Size = new System.Drawing.Size(141, 20);
             this.tournamentNameLable.TabIndex = 23;
             this.tournamentNameLable.Text = "Tournament Name";
             // 
             // enteryFeeValue
             // 
             this.enteryFeeValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.enteryFeeValue.Location = new System.Drawing.Point(150, 194);
+            this.enteryFeeValue.Location = new System.Drawing.Point(136, 194);
             this.enteryFeeValue.Name = "enteryFeeValue";
             this.enteryFeeValue.Size = new System.Drawing.Size(151, 20);
             this.enteryFeeValue.TabIndex = 25;
@@ -212,32 +217,36 @@ namespace TrackerUI
             // entryFeeLable
             // 
             this.entryFeeLable.AutoSize = true;
+            this.entryFeeLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entryFeeLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.entryFeeLable.Location = new System.Drawing.Point(35, 199);
+            this.entryFeeLable.Location = new System.Drawing.Point(36, 192);
             this.entryFeeLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.entryFeeLable.Name = "entryFeeLable";
-            this.entryFeeLable.Size = new System.Drawing.Size(52, 13);
+            this.entryFeeLable.Size = new System.Drawing.Size(78, 20);
             this.entryFeeLable.TabIndex = 24;
             this.entryFeeLable.Text = "Entry Fee";
             // 
             // tournamentPlayerListBox
             // 
             this.tournamentPlayerListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tournamentPlayerListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tournamentPlayerListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.tournamentPlayerListBox.FormattingEnabled = true;
+            this.tournamentPlayerListBox.ItemHeight = 20;
             this.tournamentPlayerListBox.Location = new System.Drawing.Point(436, 127);
             this.tournamentPlayerListBox.Name = "tournamentPlayerListBox";
-            this.tournamentPlayerListBox.Size = new System.Drawing.Size(264, 145);
+            this.tournamentPlayerListBox.Size = new System.Drawing.Size(264, 142);
             this.tournamentPlayerListBox.TabIndex = 21;
             // 
             // selectTeamLable
             // 
             this.selectTeamLable.AutoSize = true;
+            this.selectTeamLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectTeamLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.selectTeamLable.Location = new System.Drawing.Point(35, 245);
+            this.selectTeamLable.Location = new System.Drawing.Point(48, 254);
             this.selectTeamLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectTeamLable.Name = "selectTeamLable";
-            this.selectTeamLable.Size = new System.Drawing.Size(67, 13);
+            this.selectTeamLable.Size = new System.Drawing.Size(98, 20);
             this.selectTeamLable.TabIndex = 19;
             this.selectTeamLable.Text = "Select Team";
             // 
