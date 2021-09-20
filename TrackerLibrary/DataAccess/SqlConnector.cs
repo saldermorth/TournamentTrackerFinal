@@ -56,7 +56,7 @@ namespace TrackerLibrary.DataAccess
                 p.Add("@PlaceNumber", model.PlaceNumber);
                 p.Add("@PlaceName", model.PlaceName);
                 p.Add("@PrizeAmount", model.PrizeAmount);
-                p.Add("@PricePercentage", model.PrizeAmount);
+                p.Add("@PrizePercentage", model.PrizeAmount);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 
