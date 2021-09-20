@@ -95,6 +95,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                     t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
                 }
             }
+            return output;
         }
 
         public static void SaveToPrizeFile(this List<PrizeModel> models , string fileName)
@@ -118,6 +119,36 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 lines.Add($"{p.Id},{p.FirstName},{p.LastName},{p.EmailAdress},{p.CellphoneNumber}");
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+        public static void SaveToTeamFile(this List<TeamModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (TeamModel t in models)
+            {
+                lines.Add($"{ t.Id }, { t.TeamName }, { ConvertPeopleListToStrings(t.TeamMembers)}");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+
+        }
+        private static string ConvertPeopleListToStrings(List<PersonModel> people)
+        {
+            string output = "";
+
+            if (people.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (PersonModel p in people)
+            {
+                output += $"{p.Id}|";
+
+            }
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
         }
     }
 }
