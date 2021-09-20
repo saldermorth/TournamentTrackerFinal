@@ -40,7 +40,7 @@ namespace TrackerUI
             this.createMemberButton = new System.Windows.Forms.Button();
             this.firstNameLable = new System.Windows.Forms.Label();
             this.firstNameValue = new System.Windows.Forms.TextBox();
-            this.deleteSelectedPlayersButton = new System.Windows.Forms.Button();
+            this.removeSelectedPlayersButton = new System.Windows.Forms.Button();
             this.teamNameValue = new System.Windows.Forms.TextBox();
             this.teamNameLable = new System.Windows.Forms.Label();
             this.createTeamButton = new System.Windows.Forms.Button();
@@ -165,20 +165,21 @@ namespace TrackerUI
             this.firstNameValue.Size = new System.Drawing.Size(212, 31);
             this.firstNameValue.TabIndex = 4;
             // 
-            // deleteSelectedPlayersButton
+            // removeSelectedPlayersButton
             // 
-            this.deleteSelectedPlayersButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.deleteSelectedPlayersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.deleteSelectedPlayersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.deleteSelectedPlayersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteSelectedPlayersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteSelectedPlayersButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.deleteSelectedPlayersButton.Location = new System.Drawing.Point(737, 302);
-            this.deleteSelectedPlayersButton.Name = "deleteSelectedPlayersButton";
-            this.deleteSelectedPlayersButton.Size = new System.Drawing.Size(112, 78);
-            this.deleteSelectedPlayersButton.TabIndex = 10;
-            this.deleteSelectedPlayersButton.Text = "Delete Selected";
-            this.deleteSelectedPlayersButton.UseVisualStyleBackColor = true;
+            this.removeSelectedPlayersButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.removeSelectedPlayersButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.removeSelectedPlayersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.removeSelectedPlayersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeSelectedPlayersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeSelectedPlayersButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.removeSelectedPlayersButton.Location = new System.Drawing.Point(737, 302);
+            this.removeSelectedPlayersButton.Name = "removeSelectedPlayersButton";
+            this.removeSelectedPlayersButton.Size = new System.Drawing.Size(112, 78);
+            this.removeSelectedPlayersButton.TabIndex = 10;
+            this.removeSelectedPlayersButton.Text = "Remove Selected";
+            this.removeSelectedPlayersButton.UseVisualStyleBackColor = true;
+            this.removeSelectedPlayersButton.Click += new System.EventHandler(this.removeSelectedPlayersButton_Click);
             // 
             // teamNameValue
             // 
@@ -216,6 +217,7 @@ namespace TrackerUI
             this.createTeamButton.TabIndex = 20;
             this.createTeamButton.Text = "Create Team";
             this.createTeamButton.UseVisualStyleBackColor = true;
+            this.createTeamButton.Click += new System.EventHandler(this.createTeamButton_Click);
             // 
             // selectTeamMEmberLable
             // 
@@ -263,7 +265,7 @@ namespace TrackerUI
             this.ClientSize = new System.Drawing.Size(856, 741);
             this.Controls.Add(this.teamMembersListBox);
             this.Controls.Add(this.addNewMemberBox);
-            this.Controls.Add(this.deleteSelectedPlayersButton);
+            this.Controls.Add(this.removeSelectedPlayersButton);
             this.Controls.Add(this.teamNameValue);
             this.Controls.Add(this.teamNameLable);
             this.Controls.Add(this.createTeamButton);
@@ -292,12 +294,12 @@ namespace TrackerUI
         private System.Windows.Forms.Button createMemberButton;
         private System.Windows.Forms.Label firstNameLable;
         private System.Windows.Forms.TextBox firstNameValue;
-        private System.Windows.Forms.Button deleteSelectedPlayersButton;
         private System.Windows.Forms.TextBox teamNameValue;
         private System.Windows.Forms.Label teamNameLable;
         private System.Windows.Forms.Button createTeamButton;
         private System.Windows.Forms.Label selectTeamMEmberLable;
         private System.Windows.Forms.ComboBox selectTeamMemberDropDown;
         private System.Windows.Forms.Button addTeamMemberButton;
+        public System.Windows.Forms.Button removeSelectedPlayersButton;
     }
 }

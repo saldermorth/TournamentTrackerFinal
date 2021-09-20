@@ -36,9 +36,13 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
+            //TODO - Look into better refreshing
+            selectTeamMemberDropDown.DataSource = null;
+
             selectTeamMemberDropDown.DataSource = availableTeameMembers;
             selectTeamMemberDropDown.DisplayMember = "FullName";
 
+            teamMembersListBox.DataSource = null;
             teamMembersListBox.DataSource = selectedTeameMembers;
             teamMembersListBox.DisplayMember = "FullName";
 
@@ -54,7 +58,10 @@ namespace TrackerUI
                 p.EmailAdress = emailValue.Text;
                 p.CellphoneNumber = cellphoneValue.Text;
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+
+                selectedTeameMembers.Add(p);
+                WireUpLists();
 
                 firstNameValue.Text = "";
                 lastNameValue.Text = "";
@@ -93,11 +100,37 @@ namespace TrackerUI
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
 
-            availableTeameMembers.Remove(p);
-            selectedTeameMembers.Add(p);
+            if (p != null)
+            {
+                availableTeameMembers.Remove(p);
+                selectedTeameMembers.Add(p);
 
-            selectTeamMemberDropDown.Refresh();
-            teamMembersListBox.Refresh();
+                WireUpLists();
+            }
+            
+        }
+
+        private void removeSelectedPlayersButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)teamMembersListBox.SelectedItem;
+
+
+            if (p != null)
+            {
+                selectedTeameMembers.Remove(p);
+                availableTeameMembers.Add(p);
+
+                WireUpLists(); 
+            }
+        }
+
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = new TeamModel();
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = selectedTeameMembers;
+
+            GlobalConfig.Connection.CreateTeam(t);
         }
     }
 }

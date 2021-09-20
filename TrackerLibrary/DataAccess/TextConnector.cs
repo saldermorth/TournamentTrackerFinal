@@ -62,11 +62,16 @@ namespace TrackerLibrary.DataAccess
             
         }
 
-        public List<PersonModel> GetPerson_All()
+        public TeamModel CreateTeam(TeamModel model)
         {
             throw new NotImplementedException();
+        }
 
-            // TODO - implement
+        public List<PersonModel> GetPerson_All()
+        {
+            return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
+
+            
         }
     }
 }
