@@ -14,7 +14,7 @@ namespace TrackerLibrary.Models
         public int Id { get; set; }
         public string TournamentName { get; set; }
         public decimal EnteryFee { get; set; }
-        public List<TeamModel> EnteredTeames { get; set; } = new List<TeamModel>();
+        public List<TeamModel> EnteredTeams { get; set; } = new List<TeamModel>();
         public List<PrizeModel> Prizes { get; set; } = new List<PrizeModel>();
         public List<List<MatchupModel>> Rounds { get; set; } = new List<List<MatchupModel>>();
     }
