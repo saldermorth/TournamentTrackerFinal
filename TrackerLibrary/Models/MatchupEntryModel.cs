@@ -12,7 +12,7 @@ namespace TrackerLibrary.Models
         /// <summary>
         /// Reprecents one team in the matchup
         /// </summary>
-        public TeamModel TeamCompeting { get; set; }
+        public TeamModel TeamCompeting { get; set; }//ToDo- id sets att 1000 sometimes.
         /// <summary>
         /// Reprecents score for this particual team
         /// </summary>
