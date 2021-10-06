@@ -104,11 +104,11 @@ namespace TrackerLibrary.DataAccess
                 saveTournamentPrizes(model, connection);
 
                 saveTournamentEntries(model, connection);
-                                
-                
+
+                saveTournamentRounds(model, connection);
             }
         }
-        private void saveTournamentEntries(TournamentModel model, IDbConnection connection)
+        private void saveTournamentEntries(TournamentModel model, IDbConnection connection) 
         {
             foreach (TeamModel tm in model.EnteredTeams)
             {
@@ -121,7 +121,33 @@ namespace TrackerLibrary.DataAccess
                 connection.Execute("[dbo].[spTournamentEntries_Insert]", p, commandType: CommandType.StoredProcedure);
             }
         }
-        private void saveTournamentPrizes(TournamentModel model, IDbConnection connection)
+        private void saveTournamentRounds(TournamentModel model, IDbConnection connection)
+        {
+            //List<List<MatchupModel>> Rounds
+            //List<MatchupEntryModel> Entries
+
+            //Loop through the rounds
+            //Loop through the matchups
+            //save the matchup
+            //Loop through the entries and savve them
+
+            foreach (List<MatchupModel> round in model.Rounds)
+            {
+                foreach (MatchupModel matchup in round)
+                {
+                    var p = new DynamicParameters();
+                    p.Add("@TournamentId", model.Id);
+                    p.Add("@MatchupRound", matchup.MatchupRound);
+                    p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+
+                    connection.Execute("dbo.spMatchups_Insert", p, commandType: CommandType.StoredProcedure);
+
+                    matchup.Id = p.Get<int>("@Id");
+                }
+            }
+        }
+        private void saveTournamentPrizes(TournamentModel model, IDbConnection connection) 
         {
             foreach (PrizeModel pz in model.Prizes)
             {
