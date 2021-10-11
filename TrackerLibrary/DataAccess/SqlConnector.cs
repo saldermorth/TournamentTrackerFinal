@@ -95,7 +95,7 @@ namespace TrackerLibrary.DataAccess
             }
         }
 
-        public void CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)//Todo - Round error here
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))  
             {
@@ -118,10 +118,10 @@ namespace TrackerLibrary.DataAccess
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
 
-                connection.Execute("[dbo].[spTournamentEntries_Insert]", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
             }
         }
-        private void saveTournamentRounds(TournamentModel model, IDbConnection connection)
+        private void saveTournamentRounds(TournamentModel model, IDbConnection connection)//Todo - Round error here
         {            
             foreach (List<MatchupModel> round in model.Rounds)
             {
@@ -160,6 +160,7 @@ namespace TrackerLibrary.DataAccess
                         {
                             p.Add("@TeamCompetingId", entry.TeamCompeting.Id);
                         }
+
                         p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                         connection.Execute("dbo.spMatchupsEntries_Insert", p, commandType: CommandType.StoredProcedure);

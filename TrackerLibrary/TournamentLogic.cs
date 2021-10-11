@@ -88,7 +88,7 @@ namespace TrackerLibrary
         }
         private static int FindNumberOfRounds(int teamCount)
         {
-            int output = 0;
+            int output = 1;
             int val = 2;
 
             while (val < teamCount)
