@@ -6,9 +6,10 @@ using System.Windows.Forms;
 
 namespace TrackerUI
 {
-    static class TournamentViewerForm
+    public partial class TournamentViewerForm 
     {
         
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
