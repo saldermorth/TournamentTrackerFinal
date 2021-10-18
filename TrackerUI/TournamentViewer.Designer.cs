@@ -59,6 +59,7 @@ namespace TrackerUI
             this.scoreButton.TabIndex = 26;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
+            this.scoreButton.Click += new System.EventHandler(this.scoreButton_Click);
             // 
             // teamTwoScoreValue
             // 
@@ -72,24 +73,24 @@ namespace TrackerUI
             // teamTwoScoreLable
             // 
             this.teamTwoScoreLable.AutoSize = true;
-            this.teamTwoScoreLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamTwoScoreLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamTwoScoreLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.teamTwoScoreLable.Location = new System.Drawing.Point(421, 418);
             this.teamTwoScoreLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.teamTwoScoreLable.Name = "teamTwoScoreLable";
-            this.teamTwoScoreLable.Size = new System.Drawing.Size(51, 20);
+            this.teamTwoScoreLable.Size = new System.Drawing.Size(77, 29);
             this.teamTwoScoreLable.TabIndex = 24;
             this.teamTwoScoreLable.Text = "Score";
             // 
             // teamTwoName
             // 
             this.teamTwoName.AutoSize = true;
-            this.teamTwoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamTwoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamTwoName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.teamTwoName.Location = new System.Drawing.Point(410, 367);
             this.teamTwoName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.teamTwoName.Name = "teamTwoName";
-            this.teamTwoName.Size = new System.Drawing.Size(92, 20);
+            this.teamTwoName.Size = new System.Drawing.Size(138, 29);
             this.teamTwoName.TabIndex = 23;
             this.teamTwoName.Text = "<team two>";
             // 
@@ -105,12 +106,12 @@ namespace TrackerUI
             // teamOneScoreLable
             // 
             this.teamOneScoreLable.AutoSize = true;
-            this.teamOneScoreLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamOneScoreLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamOneScoreLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.teamOneScoreLable.Location = new System.Drawing.Point(410, 249);
             this.teamOneScoreLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.teamOneScoreLable.Name = "teamOneScoreLable";
-            this.teamOneScoreLable.Size = new System.Drawing.Size(51, 20);
+            this.teamOneScoreLable.Size = new System.Drawing.Size(77, 29);
             this.teamOneScoreLable.TabIndex = 21;
             this.teamOneScoreLable.Text = "Score";
             // 
@@ -129,12 +130,12 @@ namespace TrackerUI
             // teamOneName
             // 
             this.teamOneName.AutoSize = true;
-            this.teamOneName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamOneName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teamOneName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.teamOneName.Location = new System.Drawing.Point(410, 186);
             this.teamOneName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.teamOneName.Name = "teamOneName";
-            this.teamOneName.Size = new System.Drawing.Size(94, 20);
+            this.teamOneName.Size = new System.Drawing.Size(141, 29);
             this.teamOneName.TabIndex = 20;
             this.teamOneName.Text = "<team one>";
             // 
@@ -155,14 +156,15 @@ namespace TrackerUI
             // 
             this.UnplayedOnlyCheckBox.AutoSize = true;
             this.UnplayedOnlyCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UnplayedOnlyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnplayedOnlyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnplayedOnlyCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.UnplayedOnlyCheckBox.Location = new System.Drawing.Point(107, 137);
+            this.UnplayedOnlyCheckBox.Location = new System.Drawing.Point(161, 137);
             this.UnplayedOnlyCheckBox.Name = "UnplayedOnlyCheckBox";
-            this.UnplayedOnlyCheckBox.Size = new System.Drawing.Size(123, 24);
+            this.UnplayedOnlyCheckBox.Size = new System.Drawing.Size(163, 29);
             this.UnplayedOnlyCheckBox.TabIndex = 17;
             this.UnplayedOnlyCheckBox.Text = "UnplayedOnly";
             this.UnplayedOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.UnplayedOnlyCheckBox.CheckedChanged += new System.EventHandler(this.UnplayedOnlyCheckBox_CheckedChanged);
             // 
             // roundDropDown
             // 

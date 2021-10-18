@@ -20,13 +20,13 @@ namespace TrackerUI
 
         public TournamentViewer(TournamentModel tournamentModel)//Whats coming in
         {
-            
+
             InitializeComponent();
 
             tournament = tournamentModel;
 
-            WireUpLists();            
-                                    
+            WireUpLists();
+
             LoadFormData();
 
             LoadRounds();
@@ -39,15 +39,15 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
-                      
+
             roundDropDown.DataSource = rounds;
             matchupListBox.DataSource = selectedMatchups;
             matchupListBox.DisplayMember = "DisplayName";
 
         }
-        
+
         private void LoadRounds()
-        {            
+        {
             rounds.Clear();
 
             rounds.Add(1);
@@ -59,7 +59,7 @@ namespace TrackerUI
                 {
                     currRounds = matchups.First().MatchupRound;
                     rounds.Add(currRounds);
-                   
+
                 }
             }
             LoadMatchups(1);
@@ -71,7 +71,7 @@ namespace TrackerUI
         }
 
         private void LoadMatchups(int round)
-        {            
+        {
 
             foreach (List<MatchupModel> matchups in tournament.Rounds)
             {
@@ -80,9 +80,12 @@ namespace TrackerUI
                     selectedMatchups.Clear();
                     foreach (MatchupModel m in matchups)
                     {
-                        selectedMatchups.Add(m);
+                        if (m.Winner == null || !UnplayedOnlyCheckBox.Checked)
+                        {
+                            selectedMatchups.Add(m);
+                        }
                     }
-                    selectedMatchups = new BindingList<MatchupModel>(matchups);
+                    selectedMatchups = new BindingList<MatchupModel>(matchups);// Not in Tims app
                 }
             }
             LoadMatchup(selectedMatchups.First());
@@ -90,7 +93,7 @@ namespace TrackerUI
 
         private void LoadMatchup(MatchupModel m)
         {
-            
+
             for (int i = 0; i < m.Entries.Count; i++)
             {
                 if (i == 0)
@@ -108,7 +111,7 @@ namespace TrackerUI
                         teamOneName.Text = "Not yet set";
                         teamOneScoreValue.Text = "";
                     }
-                    
+
                 }
 
                 if (i == 1)
@@ -131,6 +134,58 @@ namespace TrackerUI
         private void matchupListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadMatchup((MatchupModel)matchupListBox.SelectedItem);
+        }
+
+        private void UnplayedOnlyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadMatchups((int)roundDropDown.SelectedItem);
+        }
+
+        private void scoreButton_Click(object sender, EventArgs e)
+        {
+            MatchupModel m = (MatchupModel)matchupListBox.SelectedItem;
+            double teamOneScore = 0;
+            double teamTwoScore = 0;
+
+
+            for (int i = 0; i < m.Entries.Count; i++)
+            {
+                if (i == 0)
+                {
+                    if (m.Entries[0].TeamCompeting != null)
+                    { 
+                        bool scoreValid = double.TryParse(teamOneScoreValue.Text, out teamOneScore);
+                        if (scoreValid)
+                        {
+                            m.Entries[0].Score = teamOneScore;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pleas enter a valid score for team 1");
+                            return;
+                        }
+                    }                    
+                }
+
+                if (i == 1)
+                {
+                    if (m.Entries[1].TeamCompeting != null)
+                    {
+                        teamOneName.Text = m.Entries[0].TeamCompeting.TeamName;
+                        
+                        bool scoreValid = double.TryParse(teamTwoScoreValue.Text, out teamTwoScore);
+                        if (scoreValid)
+                        {
+                            m.Entries[1].Score = teamTwoScore;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pleas enter a valid score for team 2");
+                            return;
+                        }                        
+                    }   
+                }
+            }
         }
     }
 }
