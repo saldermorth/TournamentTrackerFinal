@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TrackerLibrary.Models;
 
 namespace TrackerLibrary
@@ -23,6 +24,47 @@ namespace TrackerLibrary
             model.Rounds.Add(CreateFirstRound(byes, randomizedTeams));
 
             CreateOtherRounds(model, rounds);
+        }
+        public static void UpdateTournamentResults(TournamentModel model)
+        {
+            //if (teamOneScore > teamTwoScore)
+            //{
+            //    //teamOne Wins
+            //    m.Winner = m.Entries[0].TeamCompeting;
+            //}
+            //else if (teamTwoScore > teamOneScore)
+            //{
+            //    m.Winner = m.Entries[1].TeamCompeting;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("I do not handle tie games");
+            //}
+
+            //foreach (List<MatchupModel> round in model.Rounds)
+            //{
+            //    foreach (MatchupModel rm in round)
+            //    {
+            //        foreach (MatchupEntryModel me in rm.Entries)
+            //        {
+            //            if (me.ParentMatchup == null)
+            //            {
+            //                if (me.ParentMatchup.Id == m.Id)
+            //                {
+            //                    me.TeamCompeting = m.Winner;
+            //                    GlobalConfig.Connection.UpdateMatchup(rm);
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+
+
+
+
+
+            //GlobalConfig.Connection.UpdateMatchup(m);
+            
         }
         private static void CreateOtherRounds(TournamentModel model, int rounds)
         {
@@ -51,7 +93,6 @@ namespace TrackerLibrary
             }
             
         }
-
         private static List<MatchupModel> CreateFirstRound(int byes, List<TeamModel> teams)
         {
             List<MatchupModel> output = new List<MatchupModel>();
@@ -99,7 +140,6 @@ namespace TrackerLibrary
             }
             return output;
         }
-
         private static List<TeamModel> RandomizeTeamOrder(List<TeamModel> teams)
         {
                
