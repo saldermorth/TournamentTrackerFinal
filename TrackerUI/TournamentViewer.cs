@@ -75,7 +75,7 @@ namespace TrackerUI
 
             foreach (List<MatchupModel> matchups in tournament.Rounds)
             {
-                if (matchups.First().MatchupRound == round)
+                if (matchups.First().MatchupRound == round)//TODO - error
                 {
                     selectedMatchups.Clear();
                     foreach (MatchupModel m in matchups)
@@ -88,7 +88,27 @@ namespace TrackerUI
                     selectedMatchups = new BindingList<MatchupModel>(matchups);// Not in Tims app
                 }
             }
-            LoadMatchup(selectedMatchups.First());
+            if (selectedMatchups.Count > 0)
+            {
+                LoadMatchup(selectedMatchups.First()); 
+            }
+
+            DisplayMatchupInfo();
+        }
+
+        private void DisplayMatchupInfo()//FAulty info comming in
+        {
+            bool isVisible = (selectedMatchups.Count > 0);
+
+            teamOneName.Visible = isVisible;
+            teamOneScoreLable.Visible = isVisible;
+            teamOneScoreValue.Visible = isVisible;
+            teamTwoName.Visible = isVisible;
+            teamTwoScoreLable.Visible = isVisible;
+            teamTwoScoreValue.Visible = isVisible;
+            versusLable.Visible = isVisible;
+            scoreButton.Visible = isVisible;
+
         }
 
         private void LoadMatchup(MatchupModel m)
@@ -186,6 +206,24 @@ namespace TrackerUI
                     }   
                 }
             }
+            if (teamOneScore > teamTwoScore)
+            {
+                //teamOne Wins
+                m.Winner = m.Entries[0].TeamCompeting;
+            }
+            else if(teamTwoScore > teamOneScore)
+            {
+                m.Winner = m.Entries[1].TeamCompeting;
+            }
+            else
+            {
+                MessageBox.Show("I do not handle tie games");
+            }
+
+            LoadMatchups((int)roundDropDown.SelectedItem);
+
+
+
         }
     }
 }

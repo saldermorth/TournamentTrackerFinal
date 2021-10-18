@@ -293,15 +293,26 @@ namespace TrackerLibrary.DataAccess
                             currRow = new List<MatchupModel>();
                             currRound += 1;
                         }
-
                         currRow.Add(m);
                     }
-
                 }
-
             }
             return output;
             
+        }
+        public void UpdateMatchup(MatchupModel model)
+        {
+            //dbo.spMatchups_Update @id int, @WinnerId int
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                p.Add("@WinnerId", model.Id);
+
+                connection.Execute("dbo.spMatchups_Update", p, commandType: CommandType.StoredProcedure);
+            }
+
+          
         }
     }
 }
