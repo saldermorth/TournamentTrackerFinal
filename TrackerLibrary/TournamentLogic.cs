@@ -18,13 +18,19 @@ namespace TrackerLibrary
 
         public static void CreateRounds(TournamentModel model)
         {
+            // Order our list of teams randomly
             List<TeamModel> randomizedTeams = RandomizeTeamOrder(model.EnteredTeams);
+            // Check if it is big enough - if not, add in byes - 2*2*2*2 - 2^4
             int rounds = FindNumberOfRounds(randomizedTeams.Count);
             int byes = NumberOfByes(rounds, randomizedTeams.Count);
 
+            // Create our first round of matchups
             model.Rounds.Add(CreateFirstRound(byes, randomizedTeams));
 
+            // Create every round after that - 8 matchups - 4 matchups - 2 matchups - 1 matchup
             CreateOtherRounds(model, rounds);
+
+            UpdateTournamentResults(model);
         }
         public static void UpdateTournamentResults(TournamentModel model)
         {
@@ -42,36 +48,38 @@ namespace TrackerLibrary
 
             }
 
-            ScoreMatchups(toScore);
+            MarkWinnersInMatchups(toScore);
 
-           
+            AdvanceWinners(toScore, model);
 
-                //foreach (List<MatchupModel> round in model.Rounds)
-                //{
-                //    foreach (MatchupModel rm in round)
-                //    {
-                //        foreach (MatchupEntryModel me in rm.Entries)
-                //        {
-                //            if (me.ParentMatchup == null)
-                //            {
-                //                if (me.ParentMatchup.Id == m.Id)
-                //                {
-                //                    me.TeamCompeting = m.Winner;
-                //                    GlobalConfig.Connection.UpdateMatchup(rm);
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
-
-
-
-
-
-                //GlobalConfig.Connection.UpdateMatchup(m);
-
+            toScore.ForEach(x => GlobalConfig.Connection.UpdateMatchup(x));
         }
-        private static void ScoreMatchups(List<MatchupModel> models)
+
+        private static void AdvanceWinners(List<MatchupModel> models, TournamentModel tournament)
+        {
+
+            foreach (MatchupModel m in models)
+            {
+                foreach (List<MatchupModel> round in tournament.Rounds)
+                {
+                    foreach (MatchupModel rm in round)
+                    {
+                        foreach (MatchupEntryModel me in rm.Entries)
+                        {
+                            if (me.ParentMatchup == null)
+                            {
+                                if (me.ParentMatchup.Id == m.Id)// To do Nullerror
+                                {
+                                    me.TeamCompeting = m.Winner;
+                                    GlobalConfig.Connection.UpdateMatchup(rm);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private static void MarkWinnersInMatchups(List<MatchupModel> models)
         {
             // greater or lesser
             string greaterWins = ConfigurationManager.AppSettings["greaterWins"];
@@ -83,6 +91,7 @@ namespace TrackerLibrary
                     m.Winner = m.Entries[0].TeamCompeting;
                     continue;
                 }
+
                 //0 means false, or low score wins
                 if (greaterWins == "0")
                 {
@@ -90,10 +99,29 @@ namespace TrackerLibrary
                     {
                         m.Winner = m.Entries[0].TeamCompeting;
                     }
+                    else if (m.Entries[1].Score < m.Entries[0].Score)
+                    {
+                        m.Winner = m.Entries[1].TeamCompeting;                    
+                    }
+                    else
+                    {
+                        throw new Exception("We do not allow ties in this application");
+                    }
                 }
                 else
                 {
-                    //1 Means tru, or high score wins.
+                    if (m.Entries[0].Score > m.Entries[1].Score)
+                    {
+                        m.Winner = m.Entries[0].TeamCompeting;
+                    }
+                    else if (m.Entries[1].Score < m.Entries[0].Score)
+                    {
+                        m.Winner = m.Entries[1].TeamCompeting;
+                    }
+                    else
+                    {
+                        throw new Exception("We do not allow ties in this application");
+                    }
                 } 
             }
             

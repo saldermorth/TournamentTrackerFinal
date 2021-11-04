@@ -96,6 +96,8 @@ namespace TrackerLibrary.DataAccess
             tournaments.Add(model);
 
             tournaments.SaveToTournamentFile(GlobalConfig.TournamentFile);
+
+            TournamentLogic.UpdateTournamentResults(model);
         }
 
 

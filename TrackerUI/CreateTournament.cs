@@ -147,8 +147,10 @@ namespace TrackerUI
             // Create  first round of matchups
             // Create every round after that - 8 matchups - 4 matchups - 2 matchups - 1 matchup
             GlobalConfig.Connection.CreateTournament(tm);
-
             
+            TournamentViewer frm = new TournamentViewer(tm);
+            frm.Show();
+            this.Close();
         }
     }
     
