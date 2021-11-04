@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,75 @@ namespace TrackerLibrary
         }
         public static void UpdateTournamentResults(TournamentModel model)
         {
+            List<MatchupModel> toScore = new List<MatchupModel>();
+
+            foreach (List<MatchupModel> round in model.Rounds)
+            {
+                foreach (MatchupModel rm in round)
+                {
+                    if (rm.Winner == null && (rm.Entries.Any(x => x.Score != 0 )|| rm.Entries.Count == 1))
+                    {
+                        toScore.Add(rm);
+                    }
+                }
+
+            }
+
+            ScoreMatchups(toScore);
+
+           
+
+                //foreach (List<MatchupModel> round in model.Rounds)
+                //{
+                //    foreach (MatchupModel rm in round)
+                //    {
+                //        foreach (MatchupEntryModel me in rm.Entries)
+                //        {
+                //            if (me.ParentMatchup == null)
+                //            {
+                //                if (me.ParentMatchup.Id == m.Id)
+                //                {
+                //                    me.TeamCompeting = m.Winner;
+                //                    GlobalConfig.Connection.UpdateMatchup(rm);
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+
+
+
+
+
+                //GlobalConfig.Connection.UpdateMatchup(m);
+
+        }
+        private static void ScoreMatchups(List<MatchupModel> models)
+        {
+            // greater or lesser
+            string greaterWins = ConfigurationManager.AppSettings["greaterWins"];
+            foreach (MatchupModel m in models)
+            {
+                // Checks for bye week Entries.
+                if (m.Entries.Count == 1)
+                {
+                    m.Winner = m.Entries[0].TeamCompeting;
+                    continue;
+                }
+                //0 means false, or low score wins
+                if (greaterWins == "0")
+                {
+                    if (m.Entries[0].Score < m.Entries[1].Score)
+                    {
+                        m.Winner = m.Entries[0].TeamCompeting;
+                    }
+                }
+                else
+                {
+                    //1 Means tru, or high score wins.
+                } 
+            }
+            
             //if (teamOneScore > teamTwoScore)
             //{
             //    //teamOne Wins
@@ -40,31 +110,6 @@ namespace TrackerLibrary
             //{
             //    MessageBox.Show("I do not handle tie games");
             //}
-
-            //foreach (List<MatchupModel> round in model.Rounds)
-            //{
-            //    foreach (MatchupModel rm in round)
-            //    {
-            //        foreach (MatchupEntryModel me in rm.Entries)
-            //        {
-            //            if (me.ParentMatchup == null)
-            //            {
-            //                if (me.ParentMatchup.Id == m.Id)
-            //                {
-            //                    me.TeamCompeting = m.Winner;
-            //                    GlobalConfig.Connection.UpdateMatchup(rm);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-
-
-
-
-
-            //GlobalConfig.Connection.UpdateMatchup(m);
-            
         }
         private static void CreateOtherRounds(TournamentModel model, int rounds)
         {
